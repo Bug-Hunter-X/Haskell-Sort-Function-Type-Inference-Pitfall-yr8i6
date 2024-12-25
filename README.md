@@ -1,0 +1,5 @@
+# Haskell Sort Function Type Inference Pitfall
+
+This repository demonstrates a subtle issue with Haskell's `sort` function from `Data.List`. While it's commonly used for sorting lists of integers, its type signature is more general, and therefore can lead to unexpected behavior if not handled carefully. The code in `bug.hs` shows a simple integer sorting scenario. However, if the list contains elements that are not comparable under the default ordering (e.g., a mix of Ints and other types), the `sort` function will fail to compile or throw an exception at runtime.
+
+The solution, outlined in `bugSolution.hs`, addresses this issue by explicitly specifying the type of the list to be sorted using type annotations. This ensures that Haskell's type system correctly infers the intended behavior.  This is particularly important when dealing with heterogeneous lists or when the types involved might lead to ambiguous comparison operations.
